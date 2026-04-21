@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="glow pop">🎉 YOU ARE A POTATO BTW 🌚 🎉</h1>
+
+    <p class="fade-in delay-1">
+        You survived the potato test 🥔
+    </p>
+    <canvas id="confetti"></canvas>
+    
+    <p class="fade-in delay-3">
+        Here's your reward...
+    </p>
+    <button onclick="nextnext()">collect reward</button>
+    <script>
+        function nextnext(){
+            window.location.href="finalfinal.html"
+        }
+    </script>
+    <script>
+        const canvas = document.getElementById("confetti");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let confetti = [];
+
+        for (let i = 0; i < 150; i++) {
+            confetti.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 6 + 2,
+                d: Math.random() * 150,
+                color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+                tilt: Math.floor(Math.random() * 10) - 10
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            confetti.forEach((c) => {
+                ctx.beginPath();
+                ctx.fillStyle = c.color;
+                ctx.fillRect(c.x, c.y, c.r, c.r);
+            });
+
+            update();
+        }
+
+        function update() {
+            confetti.forEach((c) => {
+                c.y += Math.cos(c.d) + 2;
+                c.x += Math.sin(c.d);
+
+                if (c.y > canvas.height) {
+                    c.y = -10;
+                    c.x = Math.random() * canvas.width;
+                }
+            });
+        }
+
+        setInterval(draw, 20);
+    </script>
+</div>
+
+</body>
+</html>

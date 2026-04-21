@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #1a1a2e, #000);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.final-page{
+    background: url(sunflowers.jpg) no-repeat center center/cover;
+}
+/* container */
+.container {
+    text-align: center;
+    max-width: 900px;
+    padding: 40px 20px;
+}
+
+/* title */
+h1 {
+    font-size: 2.5rem;
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* 👈 controls space between images */
+    margin-top: 20px;
+}
+
+/* force equal size */
+.media img {
+    width: 180px;
+    height: 180px;       /* 👈 same height = perfect square */
+    object-fit: cover;   /* 👈 prevents stretching */
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.media img:hover {
+    transform: scale(1.08);
+}
+
+
+/* message */
+.message {
+    margin-top: 30px;
+    padding: 20px 25px;
+    max-width: 500px;
+
+    background: rgba(255, 255, 255, 0.05); /* glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 15px;
+    backdrop-filter: blur(100px);
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.message p {
+    margin: 8px 0;
+    color: rgb(163, 31, 53);
+    line-height: 1.6;
+}
+
+/* glow effect */
+.glow {
+    color: #f619a1;
+    text-shadow: 0 0 20px #f619a1;
+}
+
+/* animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+    .media img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
